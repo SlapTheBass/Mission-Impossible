@@ -1,7 +1,5 @@
 #include "cPlayer.h"
 
-
-
 cPlayer::cPlayer(std::string imgDir){
 
 	if(!pTexture.loadFromFile(imgDir)){
