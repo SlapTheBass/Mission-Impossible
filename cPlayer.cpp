@@ -1,6 +1,6 @@
 #include "cPlayer.h"
 
-cPlayer::cPlayer(std::string imgDir){
+cPlayer::cPlayer(std::string imgDir){//expanded constructor -> object is created from texture file direction
 
 	if(!pTexture.loadFromFile(imgDir)){
 		std::cerr << "Texture loading fail\n";
@@ -17,10 +17,10 @@ void cPlayer::drawPlayer(sf::RenderWindow& window){
 
 void cPlayer::playerDirection(char dir, float velocity){
 
-	if (dir == 'u') {
-		pSprite.move(0, -velocity);
-		sf::IntRect pRect(16, 523, 32, 53);
-		pSprite.setTextureRect(pRect);
+	if (dir == 'u') {//if direction is 'up'
+		pSprite.move(0, -velocity); //move player sprite up
+		sf::IntRect pRect(16, 523, 32, 53); //create rectangle with given parameters (crdx, crdy, width, heigth)
+		pSprite.setTextureRect(pRect); //cut rectangle from texture
 	} else 	if (dir == 'd') {
 		pSprite.move(0, velocity);
 		sf::IntRect pRect(16, 396, 32, 53);

@@ -1,9 +1,8 @@
-﻿  cBackground.cpp
+﻿  Mission Impossible.cpp
   cPlayer.cpp
-D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(47,27): warning C4305: "argument": obcięcie z "double" do "float"
-D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(50,27): warning C4305: "argument": obcięcie z "double" do "float"
-D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(53,27): warning C4305: "argument": obcięcie z "double" do "float"
-D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(56,27): warning C4305: "argument": obcięcie z "double" do "float"
-  Mission Impossible.cpp
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(45,27): warning C4305: "argument": obcięcie z "double" do "float"
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(48,27): warning C4305: "argument": obcięcie z "double" do "float"
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(51,27): warning C4305: "argument": obcięcie z "double" do "float"
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(54,27): warning C4305: "argument": obcięcie z "double" do "float"
   Generowanie kodu...
   Mission Impossible.vcxproj -> D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\Debug\Mission Impossible.exe

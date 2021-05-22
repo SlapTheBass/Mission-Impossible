@@ -15,7 +15,7 @@ int main(){
     //BACKGROUND as an object
     cBackground background("graphics/Background.png");
 
-    //CREATING PLAYER from texture given between brackets
+    //CREATING PLAYER 
     cPlayer player("graphics/Player.png");
 
     //MAIN LOOP
