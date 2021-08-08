@@ -15,8 +15,11 @@ public:
 
 	void movePlayer();
 
+
 private:
 	sf::Texture pTexture;
 	sf::Sprite pSprite;
+	int i = 0;
+	float interval = 20;
 };
 

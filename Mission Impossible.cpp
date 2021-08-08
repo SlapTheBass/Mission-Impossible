@@ -18,6 +18,8 @@ int main(){
     //CREATING PLAYER 
     cPlayer player("graphics/Player.png");
 
+    Clock clock;
+
     //MAIN LOOP
     while (mainWindow.isOpen()) {
 
@@ -25,6 +27,7 @@ int main(){
         if (Keyboard::isKeyPressed(Keyboard::Escape)) { // if "ESC" pressed -> close app
             mainWindow.close();
         }
+
 
         player.movePlayer(); //simply move our hero -> more details in "cPlayer.cpp"
 
