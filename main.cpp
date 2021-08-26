@@ -1,0 +1,42 @@
+﻿#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "cPlayer.h"
+#include "cBackground.h"
+
+using namespace sf;
+
+int main(){
+
+    RenderWindow mainWindow(VideoMode::getDesktopMode(), "Mission Impossible", Style::Fullscreen); //main window
+    mainWindow.setFramerateLimit(60); //60 fps mode
+    mainWindow.setKeyRepeatEnabled(true);  // holding a key means pressing it repeatably
+
+    //BACKGROUND as an object
+    cBackground background("graphics/Background.png");
+
+    //CREATING PLAYER 
+    cPlayer player("graphics/Player.png");
+
+    Clock clock;
+
+    //MAIN LOOP
+    while (mainWindow.isOpen()) {
+
+
+        if (Keyboard::isKeyPressed(Keyboard::Escape)) { // if "ESC" pressed -> close app
+            mainWindow.close();
+        }
+
+
+        player.movePlayer(); //simply move our hero -> more details in "cPlayer.cpp"
+
+        mainWindow.clear(); //all objects  should be drawn after clearing window
+
+        background.drawBackground(mainWindow); //drawing background
+
+        player.drawPlayer(mainWindow); //drawing player
+
+        mainWindow.display();
+    }
+}
+

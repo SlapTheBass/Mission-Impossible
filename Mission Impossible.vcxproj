@@ -163,7 +163,7 @@
     <ClCompile Include="cRectangle.cpp" />
     <ClCompile Include="cRock.cpp" />
     <ClCompile Include="cTree.cpp" />
-    <ClCompile Include="Mission Impossible.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cArea.h" />
