@@ -1,6 +1,3 @@
-#pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>
 
 class cBackground{
 
@@ -8,9 +5,11 @@ public:
 
 	cBackground();
 
-	cBackground(std::string);
+	cBackground(std::string, std::string);
 
 	void drawBackground(sf::RenderWindow&);
+
+	sf::Sprite getBgrSprite();
 
 private:
 

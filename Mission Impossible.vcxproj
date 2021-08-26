@@ -157,25 +157,23 @@
     <ClCompile Include="cBackground.cpp" />
     <ClCompile Include="cBranch.cpp" />
     <ClCompile Include="cBush.cpp" />
-    <ClCompile Include="cCircle.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cPlayer.cpp" />
-    <ClCompile Include="cRectangle.cpp" />
     <ClCompile Include="cRock.cpp" />
     <ClCompile Include="cTree.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PCH.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cArea.h" />
     <ClInclude Include="cBackground.h" />
     <ClInclude Include="cBranch.h" />
     <ClInclude Include="cBush.h" />
-    <ClInclude Include="cCircle.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cPlayer.h" />
-    <ClInclude Include="cRectangle.h" />
     <ClInclude Include="cRock.h" />
     <ClInclude Include="cTree.h" />
+    <ClInclude Include="PCH.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

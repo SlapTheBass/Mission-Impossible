@@ -1,2 +1,6 @@
 ﻿  main.cpp
-  Mission Impossible.vcxproj -> D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\Debug\Mission Impossible.exe
+C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\main.cpp(16,23): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\main.cpp(18,27): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\main.cpp(22,32): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\main.cpp(22,29): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+  Mission Impossible.vcxproj -> C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\Debug\Mission Impossible.exe

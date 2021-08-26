@@ -1,15 +1,33 @@
-#include "cBackground.h"
+#include "PCH.h"
 
-cBackground::cBackground(std::string imgDir) {
+cBackground::cBackground(std::string dir1, std::string dir2) {
 
-	if (!backgroundTexture.loadFromFile(imgDir)) {
-		std::cerr << "Failed to load texture!";
+	int sw = rand() % 2 + 1;
+	
+	switch (sw)
+	{
+	case 1:
+		backgroundTexture.loadFromFile(dir1);
+		break;
+
+	case 2:
+		backgroundTexture.loadFromFile(dir2);
+		break;
 	}
 
+	if (!backgroundTexture.loadFromFile(dir1) && !backgroundTexture.loadFromFile(dir2)) {
+		std::cerr << "Failed to load texture!";
+	}
+	
 	backgroundSprite.setTexture(backgroundTexture);
-	backgroundSprite.setPosition(0, 0);
+
 }
 
 void cBackground::drawBackground(sf::RenderWindow& window) {
 	window.draw(backgroundSprite);
+}
+
+sf::Sprite cBackground::getBgrSprite()
+{
+	return backgroundSprite;
 }
