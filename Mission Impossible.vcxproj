@@ -153,7 +153,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cArea.cpp" />
     <ClCompile Include="cBackground.cpp" />
     <ClCompile Include="cBranch.cpp" />
     <ClCompile Include="cBush.cpp" />
@@ -161,11 +160,11 @@
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cRock.cpp" />
     <ClCompile Include="cTree.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PCH.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cArea.h" />
     <ClInclude Include="cBackground.h" />
     <ClInclude Include="cBranch.h" />
     <ClInclude Include="cBush.h" />
@@ -173,6 +172,8 @@
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cRock.h" />
     <ClInclude Include="cTree.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Utilities.h" />
     <ClInclude Include="PCH.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

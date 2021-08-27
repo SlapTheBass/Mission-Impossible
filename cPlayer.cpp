@@ -2,26 +2,23 @@
 
 sf::Clock clk;
 
-cPlayer::cPlayer(std::string imgDir){//expanded constructor -> object is created from texture file direction
-
-	if(!pTexture.loadFromFile(imgDir)){
-		std::cerr << "Texture loading fail\n";
-	}
-	pSprite.setTexture(pTexture);
-	sf::IntRect basic(657, 1226, 32, 53);
-	pSprite.setTextureRect(basic);
-	pSprite.setPosition(900, 510);
+cPlayer::cPlayer() :
+	hide(false),
+	speed(max_speed)
+{
+	pSprite.setPosition((rand() % 500), (rand() % 500));
 }
 
 void cPlayer::drawPlayer(sf::RenderWindow& window){
+	Slow();
+	isHidden();
 	window.draw(pSprite);
 }
 
 void cPlayer::playerDirection(char dir, float velocity){
 
 	int frameX = 0;
-	int frameY = 64;
-	int width = 64;
+	int width = 60;
 	int height = 64;
 
 
@@ -30,7 +27,7 @@ void cPlayer::playerDirection(char dir, float velocity){
 			if (clk.getElapsedTime().asMilliseconds() >= interval) {
 				clk.restart();
 				if (i == 0) {
-					pSprite.setTextureRect({ 0, 512, width, height });
+					pSprite.setTextureRect({ 0 , 512, width, height });
 					i++;
 				}
 				else if (i == 1) {
@@ -210,17 +207,55 @@ void cPlayer::playerDirection(char dir, float velocity){
 void cPlayer::movePlayer() {
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		playerDirection('u', 7.1);
+		playerDirection('u', speed);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		playerDirection('d', 7.1);
+		playerDirection('d', speed);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		playerDirection('l', 7.1);
+		playerDirection('l', speed);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		playerDirection('r', 7.1);
+		playerDirection('r', speed);
 	} else {
 		playerDirection('x', 0);
 	}
+}
+
+sf::Sprite cPlayer::isHidden()
+{
+	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+	{
+		if (!pTexture.loadFromFile("graphics/Player/Player.png")) {
+			std::cerr << "Texture loading fail\n";
+		}
+		pSprite.setTexture(pTexture);
+	}
+	else
+	{
+		if (!pTexture.loadFromFile("graphics/Player/Player_hidden.png")) {
+			std::cerr << "Texture loading fail\n";
+		}
+		pSprite.setTexture(pTexture);
+		speed = 8.3;
+	}
+
+	return pSprite;
+}
+
+void cPlayer::Slow()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	{
+		speed -= 4;
+	}
+
+	if (speed < max_speed)
+	{
+		if (clk.getElapsedTime().asMilliseconds() >= 10)
+		{
+			speed += 1;
+		}
+	}
+
 }

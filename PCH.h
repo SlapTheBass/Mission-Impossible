@@ -4,7 +4,6 @@
 #include <iostream>
 #include <time.h>
 
-#include "cArea.h"
 #include "cBackground.h"
 #include "cBranch.h"
 #include "cBush.h"
@@ -12,3 +11,4 @@
 #include "cPlayer.h"
 #include "cRock.h"
 #include "cTree.h"
+#include "Level.h"

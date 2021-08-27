@@ -10,22 +10,12 @@ int main(){
     mainWindow.setFramerateLimit(60); //60 fps mode
     mainWindow.setKeyRepeatEnabled(true);  // holding a key means pressing it repeatably
 
-    std::unique_ptr<cBackground> grass;
-    std::vector<Sprite> backgroundSpr;
 
-    for (int i = 0; i <= mainWindow.getSize().x; i += 50)
-    {
-        for (int j = 0; j <= mainWindow.getSize().y; j += 20)
-        {
-            grass = std::make_unique<cBackground>("graphics/tiles/spr_grass.png", "graphics/tiles/spr_grass_alt.png");
-            auto spr = grass->getBgrSprite();
-            spr.setPosition(i, j);
-            backgroundSpr.push_back(std::move(spr));
-        }
-    }
+    //BACKGROUND
+    cBackground background;
  
     //CREATING PLAYER 
-    cPlayer player("graphics/Player.png");
+    cPlayer player;
 
     Clock clock;
 
@@ -41,10 +31,7 @@ int main(){
 
         mainWindow.clear(); //all objects  should be drawn after clearing window
 
-        for (const auto& spr : backgroundSpr)
-        {
-            mainWindow.draw(spr);
-        }
+        background.drawBackground(mainWindow);
 
         player.drawPlayer(mainWindow); //drawing player
 

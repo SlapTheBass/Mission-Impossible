@@ -1,33 +1,28 @@
 #include "PCH.h"
 
-cBackground::cBackground(std::string dir1, std::string dir2) {
-
-	int sw = rand() % 2 + 1;
-	
-	switch (sw)
-	{
-	case 1:
-		backgroundTexture.loadFromFile(dir1);
-		break;
-
-	case 2:
-		backgroundTexture.loadFromFile(dir2);
-		break;
-	}
-
-	if (!backgroundTexture.loadFromFile(dir1) && !backgroundTexture.loadFromFile(dir2)) {
-		std::cerr << "Failed to load texture!";
-	}
-	
-	backgroundSprite.setTexture(backgroundTexture);
-
-}
-
-void cBackground::drawBackground(sf::RenderWindow& window) {
-	window.draw(backgroundSprite);
-}
-
-sf::Sprite cBackground::getBgrSprite()
+cBackground::cBackground()
 {
-	return backgroundSprite;
+}
+
+
+void cBackground::drawBackground(sf::RenderWindow& window)
+{
+    backgroundTexture.loadFromFile("graphics/tiles/spr_grass.png");
+    backgroundSprite.setTexture(backgroundTexture);
+
+    std::vector<sf::Sprite> backgroundSpr;
+
+    for (float i = 0; i <= window.getSize().x; i += 49.5)
+    {
+        for (float j = 0; j <= window.getSize().y; j += 49.5)
+        {
+            backgroundSprite.setPosition(i, j);
+            backgroundSpr.push_back(std::move(backgroundSprite));
+        }
+    }
+
+    for (const auto spr : backgroundSpr)
+    {
+        window.draw(spr);
+    }
 }

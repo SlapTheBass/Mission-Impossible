@@ -9,9 +9,13 @@ public:
 
 	void playerDirection(char, float);
 
-	void movePlayer();
+	void setSpeed();
 
-	bool hidePlayer(int posX, int posY);
+	sf::Sprite isHidden();
+
+	void Slow();
+
+	void movePlayer();
 
 	bool throwStone();
 
@@ -25,6 +29,8 @@ private:
 	sf::Sprite pSprite;
 	int i = 0;
 	float interval = 20;
+	float max_speed = 12.2;
+	float speed;
 	bool hide;
 };
 

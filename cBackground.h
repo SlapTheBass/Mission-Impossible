@@ -1,16 +1,15 @@
 
-class cBackground{
-
+class cBackground
+{
 public:
 
 	cBackground();
 
-	cBackground(std::string, std::string);
-
 	void drawBackground(sf::RenderWindow&);
 
-	sf::Sprite getBgrSprite();
+	void setTexture(std::string);
 
+	sf::Sprite getSprite();
 private:
 
 	sf::Texture backgroundTexture;
