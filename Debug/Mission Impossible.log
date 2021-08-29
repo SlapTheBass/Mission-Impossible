@@ -1,6 +1,4 @@
-﻿  cPlayer.cpp
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\cPlayer.h(32,18): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\cPlayer.cpp(9,46): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\cPlayer.cpp(9,30): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\cPlayer.cpp(241,14): warning C4305: "=": obcięcie z "double" do "float"
-  Mission Impossible.vcxproj -> C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\Debug\Mission Impossible.exe
+﻿  cBush.cpp
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.h(38,14): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cBush.cpp(11,30): warning C4305: "argument": obcięcie z "double" do "float"
+  Mission Impossible.vcxproj -> D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\Debug\Mission Impossible.exe

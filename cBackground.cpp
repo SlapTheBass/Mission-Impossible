@@ -1,5 +1,7 @@
 #include "PCH.h"
 
+sf::Clock clkB;
+
 cBackground::cBackground()
 {
 }

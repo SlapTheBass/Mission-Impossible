@@ -1,9 +1,11 @@
+#pragma once
+
+#include "PCH.h"
+
 class cPlayer{
 
 public:
 	cPlayer();
-
-	cPlayer(std::string);
 
 	void drawPlayer(sf::RenderWindow&);
 
@@ -13,11 +15,15 @@ public:
 
 	sf::Sprite isHidden();
 
+	bool Hide(bool);
+
+	sf::Vector2f GetPosition();
+
 	void Slow();
 
 	void movePlayer();
 
-	bool throwStone();
+	bool isThrowing();
 
 	sf::Sprite& getAimSprite();
 
@@ -29,8 +35,8 @@ private:
 	sf::Sprite pSprite;
 	int i = 0;
 	float interval = 20;
-	float max_speed = 12.2;
-	float speed;
-	bool hide;
+	float speed = 12.2;
+	bool slow;
+	bool hide = false;
 };
 

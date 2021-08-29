@@ -1,10 +1,11 @@
-#include "PCH.h"
+#include "cPlayer.h"
+
 
 sf::Clock clk;
+sf::Clock m_clock;
 
 cPlayer::cPlayer() :
-	hide(false),
-	speed(max_speed)
+	hide(false)
 {
 	pSprite.setPosition((rand() % 500), (rand() % 500));
 }
@@ -224,7 +225,7 @@ void cPlayer::movePlayer() {
 
 sf::Sprite cPlayer::isHidden()
 {
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+	if (!hide == true)
 	{
 		if (!pTexture.loadFromFile("graphics/Player/Player.png")) {
 			std::cerr << "Texture loading fail\n";
@@ -245,17 +246,31 @@ sf::Sprite cPlayer::isHidden()
 
 void cPlayer::Slow()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && clk.getElapsedTime().asMilliseconds() <= 50)
 	{
 		speed -= 4;
-	}
+		clk.restart();
 
-	if (speed < max_speed)
-	{
-		if (clk.getElapsedTime().asMilliseconds() >= 10)
+		if (speed < 6)
 		{
-			speed += 1;
+			speed = 6;
 		}
 	}
 
+	if (speed <= 12.2 && m_clock.getElapsedTime().asMilliseconds() >= 250 )
+	{
+		speed += 0.7;
+		m_clock.restart();
+	}
+}
+
+sf::Vector2f cPlayer::GetPosition()
+{
+	return pSprite.getPosition();
+}
+
+bool cPlayer::Hide(bool test)
+{
+	hide = test;
+	return hide;
 }
