@@ -1,6 +1,7 @@
 ﻿#include "PCH.h"
 #include "cPlayer.h"
-#include "cBush.h"
+#include "cBackground.h"
+#include "Level.h"
 
 using namespace sf;
 
@@ -15,6 +16,8 @@ int main(){
 
     //BACKGROUND
     cBackground background;
+
+    Level level(&mainWindow);
  
     //CREATING PLAYER 
     cPlayer player;
@@ -37,8 +40,8 @@ int main(){
 
         background.drawBackground(mainWindow);
 
-        bush.drawBush(mainWindow);
-        bush.hidePlayer(player);
+        level.loadLevel("data/levelData.txt");
+        level.drawLevel(mainWindow);
 
         player.drawPlayer(mainWindow); //drawing player
 

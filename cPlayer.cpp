@@ -251,9 +251,9 @@ void cPlayer::Slow()
 		speed -= 4;
 		clk.restart();
 
-		if (speed < 6)
+		if (speed < 4)
 		{
-			speed = 6;
+			speed = 4;
 		}
 	}
 

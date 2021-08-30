@@ -1,9 +1,11 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "PCH.h"
+#include "cObject.h"
 
-class cTree
+class cTree : public cObject
 {
 public:
+	cTree();
 	
 protected:
 

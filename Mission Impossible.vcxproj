@@ -160,6 +160,8 @@
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cRock.cpp" />
     <ClCompile Include="cTree.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PCH.cpp" />
@@ -172,6 +174,8 @@
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cRock.h" />
     <ClInclude Include="cTree.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="PCH.h" />

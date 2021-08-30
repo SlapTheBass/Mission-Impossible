@@ -1,6 +1,5 @@
 #include "cBush.h"
 
-
 cBush::cBush()
 {
 	if (!bushTexture.loadFromFile("graphics/tiles/spr_bush.png")) {
@@ -8,13 +7,21 @@ cBush::cBush()
 	}
 
 	bushSprite.setTexture(bushTexture);
-	bushSprite.setScale(1.3, 1.3);
-	bushSprite.setPosition(900, 500);
 }
 
 sf::Vector2f cBush::GetPosition()
 {
 	return bushSprite.getPosition();
+}
+
+sf::Sprite cBush::GetSprite()
+{
+	return bushSprite;
+}
+
+void cBush::SetPosition(sf::Vector2f position)
+{
+	bushSprite.setPosition(position.x, position.y);
 }
 
 float cBush::distanceBtwPts(sf::Vector2f position1, sf::Vector2f position2)
@@ -24,7 +31,7 @@ float cBush::distanceBtwPts(sf::Vector2f position1, sf::Vector2f position2)
 
 void cBush::hidePlayer(cPlayer& player)
 {
-	if (distanceBtwPts(player.GetPosition(), GetPosition()) < 45.f)
+	if (distanceBtwPts(player.GetPosition(), GetPosition()) < 25.f)
 	{
 		player.Hide(true);
 	}

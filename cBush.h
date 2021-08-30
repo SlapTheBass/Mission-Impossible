@@ -1,4 +1,4 @@
-#include "PCH.h"
+
 #include "cPlayer.h"
 
 
@@ -14,6 +14,10 @@ public:
 	float distanceBtwPts(sf::Vector2f position1, sf::Vector2f position2);
 
 	sf::Vector2f GetPosition();
+
+	sf::Sprite GetSprite();
+
+	void SetPosition(sf::Vector2f position);
 
 private:
 	bool slow;
