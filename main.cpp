@@ -17,12 +17,10 @@ int main(){
     //BACKGROUND
     cBackground background;
 
-    Level level(&mainWindow);
- 
     //CREATING PLAYER 
     cPlayer player;
 
-    cBush bush;
+    Level level(&mainWindow, &player);
 
     Clock clock;
 
@@ -42,6 +40,7 @@ int main(){
 
         level.loadLevel("data/levelData.txt");
         level.drawLevel(mainWindow);
+        level.hidePlayer();
 
         player.drawPlayer(mainWindow); //drawing player
 

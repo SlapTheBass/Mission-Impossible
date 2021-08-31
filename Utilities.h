@@ -1,6 +1,7 @@
 #pragma once
 enum class TILE
 {
+	EMPTY,
 	TREE,
 	BUSH,
 	ENTRANCE,

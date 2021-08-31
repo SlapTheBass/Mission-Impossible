@@ -274,3 +274,8 @@ bool cPlayer::Hide(bool test)
 	hide = test;
 	return hide;
 }
+
+void cPlayer::setSpeed(float spd)
+{
+	speed = spd;
+}

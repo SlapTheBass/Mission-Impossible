@@ -11,7 +11,7 @@ public:
 
 	void playerDirection(char, float);
 
-	void setSpeed();
+	void setSpeed(float);
 
 	sf::Sprite isHidden();
 
