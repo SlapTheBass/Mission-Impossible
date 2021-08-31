@@ -161,6 +161,7 @@
     <ClCompile Include="cRock.cpp" />
     <ClCompile Include="cTree.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="cRock.h" />
     <ClInclude Include="cTree.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Utilities.h" />

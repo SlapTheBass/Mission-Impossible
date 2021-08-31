@@ -2,7 +2,8 @@
 
 
 Level::Level(sf::RenderWindow* window) :
-	m_window(*window)
+	m_window(*window),
+	m_levelNum(1)
 {
 
 }
@@ -17,6 +18,8 @@ bool Level::loadLevel(std::string fileName)
 		{
 			for (int i = 0; i < GRID_WIDTH; i++)
 			{
+				auto& cell = m_grid[i][j];
+
 				std::string input;
 
 				file.get();
@@ -27,12 +30,10 @@ bool Level::loadLevel(std::string fileName)
 				int tileID;
 				convert >> tileID;
 
-				if (tileID == 1)
-				{
-					auto spr = bush.GetSprite();
-					spr.setPosition(TILE_SIZE * i, TILE_SIZE * j);
-					bushSprites.push_back(std::move(spr));
-				}
+				cell.type = static_cast<TILE>(tileID);
+				cell.sprite.setTexture();
+
+				
 			}
 			file.get();
 		}
@@ -48,6 +49,6 @@ void Level::drawLevel(sf::RenderWindow& window)
 {
 	for (auto spr : bushSprites)
 	{
-		window.draw(spr);
+
 	}
 }
