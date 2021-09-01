@@ -37,6 +37,6 @@ private:
 	float interval = 20;
 	float speed = 12.2;
 	bool slow;
-	bool hide = false;
+	bool hide;
 };
 

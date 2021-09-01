@@ -4,9 +4,10 @@
 sf::Clock clk;
 sf::Clock m_clock;
 
-cPlayer::cPlayer() :
-	hide(false)
+cPlayer::cPlayer() 
 {
+	slow = false;
+	hide = false;
 	pSprite.setPosition((rand() % 500), (rand() % 500));
 }
 
@@ -227,16 +228,12 @@ sf::Sprite cPlayer::isHidden()
 {
 	if (!hide == true)
 	{
-		if (!pTexture.loadFromFile("graphics/Player/Player.png")) {
-			std::cerr << "Texture loading fail\n";
-		}
+		pTexture.loadFromFile("graphics/Player/Player.png");
 		pSprite.setTexture(pTexture);
 	}
 	else
 	{
-		if (!pTexture.loadFromFile("graphics/Player/Player_hidden.png")) {
-			std::cerr << "Texture loading fail\n";
-		}
+		pTexture.loadFromFile("graphics/Player/Player_hidden.png");
 		pSprite.setTexture(pTexture);
 		speed = 8.3;
 	}

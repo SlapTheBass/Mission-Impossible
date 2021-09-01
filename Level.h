@@ -24,7 +24,7 @@ struct Tile {
 class Level
 {
 public:
-	Level(sf::RenderWindow* window, cPlayer* player);
+	Level(sf::RenderWindow& window);
 
 	void Generate();
 
@@ -36,16 +36,15 @@ public:
 
 	float distanceBtwPts(sf::Vector2f position1, sf::Vector2f position2);
 
-	void hidePlayer();
+	void hidePlayer(cPlayer&);
 
 private:
-	sf::RenderWindow& m_window;
 
 	Tile m_grid[GRID_WIDTH][GRID_HEIGHT];
 
 	sf::Texture bush;
 
-	std::vector<sf::Sprite> bushes;
+	std::vector<std::shared_ptr<cBush>> bushes;
 
 	int m_levelNum;
 

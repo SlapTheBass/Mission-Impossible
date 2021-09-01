@@ -1,12 +1,10 @@
 #include "Level.h"
 
 
-Level::Level(sf::RenderWindow* window, cPlayer* player) :
-	m_window(*window),
-	m_player(*player),
-	m_levelNum(1)
+Level::Level(sf::RenderWindow& window) 
+
 {
-	bush.loadFromFile("graphics/tiles/spr_tree2.png");
+	bush.loadFromFile("graphics/tiles/spr_bush.png");
 
 	for (int i = 0; i < GRID_WIDTH; i++)
 	{
@@ -43,9 +41,9 @@ bool Level::loadLevel(std::string fileName)
 
 	if (file.is_open())
 	{
-		for (int j = 0; j < GRID_HEIGHT; j++)
+		for (int j = 0; j < GRID_HEIGHT; ++j)
 		{
-			for (int i = 0; i < GRID_WIDTH; i++)
+			for (int i = 0; i < GRID_WIDTH; ++i)
 			{
 				auto& cell = m_grid[i][j];
 
@@ -97,7 +95,7 @@ float Level::distanceBtwPts(sf::Vector2f position1, sf::Vector2f position2)
 	return (abs(sqrt(((position1.x - position2.x) * (position1.x - position2.x)) + ((position1.y - position2.y) * (position1.y - position2.y)))));
 }
 
-void Level::hidePlayer()
+void Level::hidePlayer(cPlayer& player)
 {
 	for (int i = 0; i < GRID_WIDTH; i++)
 	{
@@ -106,12 +104,10 @@ void Level::hidePlayer()
 			auto& cell = m_grid[i][j];
 			if (cell.type == 1)
 			{
-				if (distanceBtwPts(m_player.GetPosition(), m_grid[i][j].sprite.getPosition()) < 25.f)
+				if (distanceBtwPts(player.GetPosition(), cell.sprite.getPosition()) < 25.f)
 				{
-					m_player.Hide(true);
+					player.Hide(true);
 				}
-				else
-					m_player.Hide(false);
 			}
 		}
 	}

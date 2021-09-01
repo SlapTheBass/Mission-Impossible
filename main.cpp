@@ -20,7 +20,7 @@ int main(){
     //CREATING PLAYER 
     cPlayer player;
 
-    Level level(&mainWindow, &player);
+    Level level(mainWindow);
 
     Clock clock;
 
@@ -32,7 +32,7 @@ int main(){
             mainWindow.close();
         }
 
-        player.movePlayer(); //simply move our hero -> more details in "cPlayer.cpp"
+        player.movePlayer(); //simply move our hero
 
         mainWindow.clear(); //all objects  should be drawn after clearing window
 
@@ -40,7 +40,7 @@ int main(){
 
         level.loadLevel("data/levelData.txt");
         level.drawLevel(mainWindow);
-        level.hidePlayer();
+        level.hidePlayer(player);
 
         player.drawPlayer(mainWindow); //drawing player
 
