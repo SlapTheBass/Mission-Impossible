@@ -266,10 +266,9 @@ sf::Vector2f cPlayer::GetPosition()
 	return pSprite.getPosition();
 }
 
-bool cPlayer::Hide(bool test)
+void cPlayer::Hide(bool test)
 {
 	hide = test;
-	return hide;
 }
 
 void cPlayer::setSpeed(float spd)

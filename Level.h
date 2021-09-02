@@ -28,6 +28,8 @@ public:
 
 	void Generate();
 
+	Tile* GetTile(sf::Vector2f);
+
 	int AddTile(std::string, TILE);
 
 	void drawLevel(sf::RenderWindow& window);
@@ -44,7 +46,7 @@ private:
 
 	sf::Texture bush;
 
-	std::vector<std::shared_ptr<cBush>> bushes;
+	std::vector<sf::Vector2f> bushes;
 
 	int m_levelNum;
 

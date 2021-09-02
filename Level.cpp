@@ -104,11 +104,24 @@ void Level::hidePlayer(cPlayer& player)
 			auto& cell = m_grid[i][j];
 			if (cell.type == 1)
 			{
-				if (distanceBtwPts(player.GetPosition(), cell.sprite.getPosition()) < 25.f)
-				{
-					player.Hide(true);
-				}
+				auto pos = cell.sprite.getPosition();
+				bushes.push_back(std::move(pos));
 			}
 		}
 	}
+
+	for (auto pos : bushes)
+	{
+		std::cerr << pos.x << "  " << pos.y << std::endl;
+	}
+}
+
+Tile* Level::GetTile(sf::Vector2f position)
+{
+	int tileColumn, tileRow;
+
+	tileColumn = static_cast<int>(position.x) / TILE_SIZE;
+	tileRow = static_cast<int>(position.y) / TILE_SIZE;
+
+	return &m_grid[tileColumn][tileRow];
 }
