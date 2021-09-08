@@ -1,4 +1,8 @@
-﻿  cPlayer.cpp
+﻿  Item.cpp
+  cBranch.cpp
+  cPlayer.cpp
 D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(6,16): warning C4305: "=": obcięcie z "double" do "float"
-D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(242,16): warning C4305: "=": obcięcie z "double" do "float"
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(53,16): warning C4305: "=": obcięcie z "double" do "float"
+  cRock.cpp
+  Generowanie kodu...
   Mission Impossible.vcxproj -> D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\Debug\Mission Impossible.exe

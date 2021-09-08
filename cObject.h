@@ -14,6 +14,9 @@ public:
 	/*sets position of an object by given Vector2 of floats*/
 	void SetPosition(sf::Vector2f);
 
+	/*this method draws an item, returns void, and should take game window as an argument*/
+	virtual void Draw(sf::RenderWindow&);
+
 protected:
 	sf::Sprite m_sprite;
 

@@ -11,10 +11,10 @@ cPlayer::cPlayer()
 	aim.setTexture(aim_tex);
 }
 
-void cPlayer::drawPlayer(sf::RenderWindow& window){
+void cPlayer::Draw(sf::RenderWindow& window){
 	Slow();
 	isHidden();
-	window.draw(m_sprite);
+	cObject::Draw(window);
 	window.draw(aim);
 }
 
@@ -56,11 +56,6 @@ sf::Sprite cPlayer::isHidden()
 	return m_sprite;
 }
 
-
-sf::Vector2f cPlayer::GetPosition()
-{
-	return m_sprite.getPosition();
-}
 
 void cPlayer::Hide(bool test)
 {

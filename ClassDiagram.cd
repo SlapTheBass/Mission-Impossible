@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="cBackground" Collapsed="true">
+    <Position X="15.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAABQAEAAAAAAAAAA=</HashCode>
+      <FileName>cBackground.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cBranch" Collapsed="true">
+    <Position X="10.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cBranch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cObject" Collapsed="true">
+    <Position X="10.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIAgAAAAAAAAAgAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>cObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cPlayer" Collapsed="true">
+    <Position X="7.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQCECAAAADAgAAECAAABCIACAAAAAAIAAEAAAAAAA=</HashCode>
+      <FileName>cPlayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cRock" Collapsed="true">
+    <Position X="13" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cRock.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity" Collapsed="true">
+    <Position X="9.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAACAAAAQAgAAIAAAAAAABAA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="11.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAAAAAAAQAAAAAAEAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Item.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level" Collapsed="true">
+    <Position X="15.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAJAABAAABQAgAQkAgAEQAAAAAABCAAAAEgAAEA=</HashCode>
+      <FileName>Level.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Tile" Collapsed="true">
+    <Position X="15.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAQEBABAAAAAAAAGEAAAAA=</HashCode>
+      <FileName>Level.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="TILE" Collapsed="true">
+    <Position X="15.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIIAAAAAEAAACAACAEAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Utilities.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ITEM" Collapsed="true">
+    <Position X="15.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIEAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

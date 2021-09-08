@@ -8,7 +8,7 @@ public:
 	/*default constructor*/
 	Entity();
 
-	/*decreases object speed for a short time, after this time speed will slowly increase*/
+	/*if true - decreases object speed for a short time, after this time speed will slowly increase*/
 	void Slow();
 
 	/*sets the speed of object

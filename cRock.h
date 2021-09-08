@@ -1,5 +1,7 @@
 #pragma once
-class cRock
+#include "Item.h"
+
+class cRock : public Item
 {
 };
 

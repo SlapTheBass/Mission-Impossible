@@ -1,5 +1,6 @@
 ﻿#include "PCH.h"
 #include "cPlayer.h"
+#include "Entity.h"
 #include "cBackground.h"
 #include "Level.h"
 
@@ -14,12 +15,23 @@ int main(){
     mainWindow.setMouseCursorVisible(false);
     mainWindow.setKeyRepeatEnabled(true);  // holding a key means pressing it repeatably
 
+    Music music;
+    music.setLoop(true);
+    music.setVolume(3.f);
+    if (!music.openFromFile("sound/main.wav"))
+    {
+        return -1;
+    }
+    music.play();
+
 
     //BACKGROUND
     cBackground background;
 
     //CREATING PLAYER 
     cPlayer player;
+
+    *player = new Entity();
 
     Level level(mainWindow);
 
@@ -44,7 +56,7 @@ int main(){
         level.hidePlayer(player);
         level.playerCollision(player);
 
-        player.drawPlayer(mainWindow); //drawing player
+        player.Draw(mainWindow); //drawing player
 
         mainWindow.display();
     }

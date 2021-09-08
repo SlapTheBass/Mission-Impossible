@@ -16,5 +16,10 @@ void cObject::SetPosition(sf::Vector2f position)
 
 sf::Vector2f cObject::GetPosition()
 {
-	return m_position;
+	return m_sprite.getPosition();
+}
+
+void cObject::Draw(sf::RenderWindow& window)
+{
+	window.draw(m_sprite);
 }
