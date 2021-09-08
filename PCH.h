@@ -7,5 +7,4 @@
 #include <sstream>
 
 #include "Utilities.h"
-#include "GraphicsManager.h"
 

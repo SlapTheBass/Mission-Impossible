@@ -11,6 +11,7 @@ int main(){
 
     RenderWindow mainWindow(VideoMode::getDesktopMode(), "Mission Impossible", Style::Fullscreen); //main window
     mainWindow.setFramerateLimit(120); 
+    mainWindow.setMouseCursorVisible(false);
     mainWindow.setKeyRepeatEnabled(true);  // holding a key means pressing it repeatably
 
 
@@ -28,19 +29,20 @@ int main(){
     while (mainWindow.isOpen()) {
 
 
-        if (Keyboard::isKeyPressed(Keyboard::Escape)) { // if "ESC" pressed -> close app
+        if (Keyboard::isKeyPressed(Keyboard::Escape)) { 
             mainWindow.close();
         }
 
-        player.movePlayer(); //simply move our hero
+        player.movePlayer(); 
 
         mainWindow.clear(); //all objects  should be drawn after clearing window
 
         background.drawBackground(mainWindow);
 
-        level.loadLevel("data/levelData.txt");
+        level.loadLevel("data/TEST.txt");
         level.drawLevel(mainWindow);
         level.hidePlayer(player);
+        level.playerCollision(player);
 
         player.drawPlayer(mainWindow); //drawing player
 

@@ -1,8 +1,4 @@
-﻿  Level.cpp
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\cPlayer.h(38,14): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\Level.cpp(123,44): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\Level.cpp(124,41): warning C4244: "=": konwersja z "float" do "int", możliwa utrata danych
-  main.cpp
-C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\cPlayer.h(38,14): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-  Generowanie kodu...
-  Mission Impossible.vcxproj -> C:\Users\User\Desktop\Programy\Mission_Impossible\Mission-Impossible\Debug\Mission Impossible.exe
+﻿  cPlayer.cpp
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(6,16): warning C4305: "=": obcięcie z "double" do "float"
+D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\cPlayer.cpp(242,16): warning C4305: "=": obcięcie z "double" do "float"
+  Mission Impossible.vcxproj -> D:\VISUAL STUDIO\Projects\Projekt_studia\Mission Impossible\Debug\Mission Impossible.exe

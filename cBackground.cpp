@@ -12,9 +12,9 @@ void cBackground::drawBackground(sf::RenderWindow& window)
 
     std::vector<sf::Sprite> backgroundSpr;
 
-    for (float i = 0; i <= window.getSize().x; i += 49.5)
+    for (float i = 0; i <= window.getSize().x; i += 50)
     {
-        for (float j = 0; j <= window.getSize().y; j += 49.5)
+        for (float j = 0; j <= window.getSize().y; j += 50)
         {
             backgroundSprite.setPosition(i, j);
             backgroundSpr.push_back(std::move(backgroundSprite));

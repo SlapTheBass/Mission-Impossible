@@ -1,21 +1,18 @@
 #pragma once
-
+/*base class inherited by item, entity and projectile classes*/
 #include "PCH.h"
 
 class cObject
 {
 public:
+	/*default constructor*/
 	cObject();
 
+	/*gets position of sprite of an object and returns it as Vector2 of floats*/
 	sf::Vector2f GetPosition();
 
-	virtual void Draw(sf::RenderWindow& window);
-
+	/*sets position of an object by given Vector2 of floats*/
 	void SetPosition(sf::Vector2f);
-
-	void SetSprite(sf::Texture&);
-
-	sf::Sprite& GetSprite();
 
 protected:
 	sf::Sprite m_sprite;

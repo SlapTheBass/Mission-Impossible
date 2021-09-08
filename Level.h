@@ -1,17 +1,16 @@
 #pragma once
 
 #include "PCH.h"
-#include "cTree.h"
-#include "cBush.h"
 #include "cPlayer.h"
 
-static int const GRID_WIDTH = 38;
-static int const GRID_HEIGHT = 21;
+static int const GRID_WIDTH = 39;
+static int const GRID_HEIGHT = 22;
 
 static float const TILE_SIZE = 50;
 
+/*struct that describes every single tile drawn on screen*/
 struct Tile {
-	int type;
+	TILE type;
 	int columnIndex;
 	int rowIndex;
 	sf::Sprite sprite;
@@ -24,21 +23,31 @@ struct Tile {
 class Level
 {
 public:
+	/*parametrized constructor which takes game window as an argument*/
 	Level(sf::RenderWindow& window);
 
+	/*method that generates 39x22 table of random values and saves it to .txt file (NOT WORKING WELL YET)*/
 	void Generate();
 
+	/*method that takes position and returns tile*/
 	Tile* GetTile(sf::Vector2f);
 
-	int AddTile(std::string, TILE);
+	sf::Vector2f GetTilePos(int columnIndex, int rowIndex);
 
+	/*drawing all tiles on game window*/
 	void drawLevel(sf::RenderWindow& window);
 
+	/*loads level data from .txt file and converts values to tile types*/
 	bool loadLevel(std::string fileName);
 
+	/*returns distance between points given by 2 vectors*/
 	float distanceBtwPts(sf::Vector2f position1, sf::Vector2f position2);
 
+	/*sets hide parameter of cPlayer to TRUE*/
 	void hidePlayer(cPlayer&);
+
+	/*collision handling*/
+	void playerCollision(cPlayer&);
 
 private:
 
@@ -46,7 +55,9 @@ private:
 
 	sf::Texture bush;
 
-	std::vector<sf::Vector2f> bushes;
+	sf::Texture tree;
+
+	sf::Vector2i m_origin;
 
 	int m_levelNum;
 
@@ -54,6 +65,9 @@ private:
 
 	cPlayer m_player;
 
+	int winWidth;
+
+	int winHeight;
 	
 };
 
