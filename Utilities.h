@@ -4,12 +4,7 @@ enum class TILE
 {
 	EMPTY,
 	BUSH,
-	TREE,
-	TREE_ALT,
-	ENTRANCE,
-	EXIT_LOCKED,
-	EXIT,
-	COUNT
+	TREE
 };
 
 /*enum class describing item types*/

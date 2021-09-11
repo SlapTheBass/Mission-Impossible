@@ -1,11 +1,10 @@
 #include "Level.h"
 
-
 Level::Level(sf::RenderWindow& window)
 {
 	bush.loadFromFile("graphics/tiles/spr_bush.png");
 	tree.loadFromFile("graphics/tiles/spr_tree.png");
-
+	empty.loadFromFile("graphics/tiles/spr_grass_alt.png");
 	m_origin.x = (window.getSize().x - (GRID_WIDTH * TILE_SIZE));
 	m_origin.y = (window.getSize().y - (GRID_HEIGHT * TILE_SIZE));
 
@@ -23,7 +22,7 @@ Level::Level(sf::RenderWindow& window)
 	}
 }
 
-void Level::Generate()
+void Level::Generate() //DO NOT USE YET
 {
 	std::ofstream file;
 
@@ -51,7 +50,7 @@ bool Level::loadLevel(std::string fileName)
 
 	if (file.is_open())
 	{
-		for (int j = 0; j < GRID_HEIGHT; ++j)
+		for (int j = 0; j < GRID_HEIGHT; j++)
 		{
 			for (int i = 0; i < GRID_WIDTH; ++i)
 			{
@@ -76,7 +75,10 @@ bool Level::loadLevel(std::string fileName)
 
 				case TILE::TREE:
 					cell.sprite.setTexture(tree);
-					cell.sprite.setOrigin(-3, 30);
+					break;
+
+				default:
+					cell.type = TILE::EMPTY;
 					break;
 				}
 				cell.sprite.setPosition(TILE_SIZE * i, TILE_SIZE * j);
@@ -94,6 +96,11 @@ bool Level::loadLevel(std::string fileName)
 
 void Level::drawLevel(sf::RenderWindow& window)
 {
+	for (auto const& item : m_items)
+	{
+		item->Draw(window);
+	}
+
 	for (int i = 0; i < GRID_WIDTH; i++)
 	{
 		for (int j = 0; j < GRID_HEIGHT; j++)
@@ -101,6 +108,8 @@ void Level::drawLevel(sf::RenderWindow& window)
 			window.draw(m_grid[i][j].sprite);
 		}
 	}
+
+
 }
 
 
@@ -124,36 +133,37 @@ void Level::hidePlayer(cPlayer& player)
 void Level::playerCollision(cPlayer& player)
 {
 	Tile& playerTile = *GetTile(player.GetPosition());
-	Tile& lowerTile = *GetTile({ player.GetPosition().x, player.GetPosition().y + 70.f });
-	Tile& nextTile = *GetTile({ player.GetPosition().x + 15.f, player.GetPosition().y + 50.f});
-	Tile& previousTile = *GetTile({player.GetPosition().x - 15.f, player.GetPosition().y + 50.f });
+	Tile& topTile = *GetTile(playerTile.columnIndex, playerTile.rowIndex - 1);
+	Tile& botTile = *GetTile(playerTile.columnIndex, playerTile.rowIndex + 1);
+	Tile& rigTile = *GetTile(playerTile.columnIndex + 1, playerTile.rowIndex);
+	Tile& lefTile = *GetTile(playerTile.columnIndex - 1, playerTile.rowIndex);
 
-	if (playerTile.type == TILE::TREE)
+	if (topTile.type == TILE::TREE)
 	{
-		if (player.GetPosition().y - playerTile.sprite.getPosition().y < 10.f)
+		if (player.GetPosition().y - topTile.sprite.getPosition().y < 40.f)
 		{
-			player.SetPosition({ player.GetPosition().x, playerTile.sprite.getPosition().y});
+			player.SetPosition({ player.GetPosition().x, playerTile.sprite.getPosition().y - 5.f});
 		}
 	}
-	else if (lowerTile.type == TILE::TREE)
+	else if (botTile.type == TILE::TREE)
 	{
-		if (playerTile.sprite.getPosition().y - lowerTile.sprite.getPosition().y < 0.f)
+		if (botTile.sprite.getPosition().y - player.GetPosition().y < 40.f)
 		{
-			player.SetPosition({ player.GetPosition().x, (lowerTile.sprite.getPosition().y - lowerTile.sprite.getLocalBounds().height - 15.f) });
+			player.SetPosition({ player.GetPosition().x, playerTile.sprite.getPosition().y });
 		}
 	}
-	else if (nextTile.type == TILE::TREE)
+	else if (rigTile.type == TILE::TREE)
 	{
-		if (playerTile.sprite.getPosition().x - nextTile.sprite.getPosition().x < 15.f)
+		if (rigTile.sprite.getPosition().x - player.GetPosition().x < 40.f)
 		{
-			player.SetPosition({ playerTile.sprite.getPosition().x - 55.f + nextTile.sprite.getLocalBounds().width, player.GetPosition().y });
+			player.SetPosition({playerTile.sprite.getPosition().x , player.GetPosition().y });
 		}
 	}
-	else if (previousTile.type == TILE::TREE)
+	else if (lefTile.type == TILE::TREE)
 	{
-		if (playerTile.sprite.getPosition().x - (previousTile.sprite.getPosition().x + previousTile.sprite.getLocalBounds().width) < 15.f)
+		if (player.GetPosition().x - lefTile.sprite.getPosition().x < 40.f)
 			{
-				player.SetPosition({ playerTile.sprite.getPosition().x - previousTile.sprite.getLocalBounds().width + 40.f, player.GetPosition().y });
+				player.SetPosition({ playerTile.sprite.getPosition().x , player.GetPosition().y });
 			}
 	}
 	else if (player.GetPosition().x < 1.f)
@@ -189,8 +199,167 @@ Tile* Level::GetTile(sf::Vector2f position)
 	return &m_grid[tileColumn][tileRow];
 }
 
-sf::Vector2f Level::GetTilePos(int columnIndex, int rowIndex)
+Tile* Level::GetTile(int columnIndex, int rowIndex)
 {
-	return m_grid[columnIndex][rowIndex].sprite.getPosition();
+	return &m_grid[columnIndex][rowIndex];
+}
+
+bool Level::IsEmpty(int columnIndex, int rowIndex)
+{
+	Tile* tile = &m_grid[columnIndex][rowIndex];
+
+	return (tile->type == TILE::EMPTY);
+}
+
+bool Level::IsEmpty(const Tile& tile)
+{
+	return (tile.type == TILE::EMPTY);
+}
+
+sf::Vector2f Level::GetTileLocation(int columnIndex, int rowIndex)
+{
+	sf::Vector2f location;
+
+	location.x = m_origin.x + (columnIndex * TILE_SIZE) + (TILE_SIZE / 2);
+	location.y = m_origin.y + (rowIndex * TILE_SIZE) + (TILE_SIZE / 2);
+
+	return location;
+}
+
+sf::Vector2f Level::RandomSpawnLocation()
+{
+	int rowIndex(0), columnIndex(0);
+
+	while (!IsEmpty(columnIndex, rowIndex))
+	{
+		columnIndex = std::rand() % GRID_WIDTH;
+		rowIndex = std::rand() % GRID_HEIGHT;
+	}
+
+	sf::Vector2f randLocation(GetTileLocation(columnIndex, rowIndex));
+
+	randLocation.x += std::rand() % 21 - 10;
+	randLocation.y += std::rand() % 21 - 10;
+
+	return randLocation;
+}
+
+void Level::SpawnItem(ITEM itemType, sf::Vector2f position)
+{
+	std::unique_ptr<Item> item;
+
+	int itemIndex = 0;
+
+	sf::Vector2f spawnLocation;
+
+	if ((position.x >= 0.f) || (position.y >= 0.f))
+	{
+		spawnLocation = position;
+	}
+	else
+	{
+		spawnLocation = RandomSpawnLocation();
+	}
+
+	switch (itemType)
+	{
+	case ITEM::BRANCH :
+		item = std::make_unique<cBranch>();
+		break;
+
+	case ITEM::STONE :
+		item = std::make_unique<cRock>();
+		break;
+
+	case ITEM::DIAMOND :
+		item = std::make_unique<Diamond>();
+		break;
+	}
+
+	item->SetPosition(spawnLocation);
+
+	m_items.push_back(std::move(item));
+}
+
+void Level::Populate()
+{
+	for (int i = 0; i < 25; i++)
+	{
+
+		SpawnItem(static_cast<ITEM>(std::rand() % 2));
+
+	}
+
+	SpawnItem(ITEM::DIAMOND, { 1800, 510 });
+}
+
+void Level::UpdateItems(cPlayer& player)
+{
+	auto itemIterator = m_items.begin();
+	while (itemIterator != m_items.end())
+	{
+		Item& item = **itemIterator;
+		if (distanceBtwPts(item.GetPosition(), player.GetPosition()) < 35.f)
+		{
+			switch (item.GetType())
+			{
+
+			case ITEM::DIAMOND:
+				game_over = true;
+				break;
+
+			case ITEM::BRANCH :
+				player.SetSlow(true);
+				break;
+
+			case ITEM::STONE :
+				cRock& rock = dynamic_cast<cRock&>(item);
+				player.SetSlip(true);
+				break;
+
+
+			}
+
+			itemIterator = m_items.erase(itemIterator);
+		}
+		else
+		{
+			++itemIterator;
+		}
+	}
+}
+
+void Level::EndGame(bool test)
+{
+	game_over = test;
+}
+
+bool Level::GameOver()
+{
+	return game_over;
+}
+
+void Level::ResetNodes()
+{
+	for (int i = 0; i < GRID_WIDTH; ++i)
+	{
+		for (int j = 0; j < GRID_HEIGHT; ++j)
+		{
+			m_grid[i][j].parentNode = nullptr;
+			m_grid[i][j].H = 0;
+			m_grid[i][j].F = 0;
+			m_grid[i][j].G = 0;
+		}
+	}
+}
+
+TILE Level::GetTileType(int columnIndex, int rowIndex) const
+{
+	if ((columnIndex >= GRID_WIDTH) || (rowIndex >= GRID_HEIGHT))
+	{
+		return TILE::EMPTY;
+	}
+
+	return m_grid[columnIndex][rowIndex].type;
 }
 

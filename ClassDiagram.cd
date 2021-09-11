@@ -1,77 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="cBackground" Collapsed="true">
-    <Position X="15.25" Y="10.75" Width="1.5" />
+  <Class Name="cBackground">
+    <Position X="14.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAABQAEAAAAAAAAAA=</HashCode>
       <FileName>cBackground.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="cBranch" Collapsed="true">
-    <Position X="10.75" Y="14.75" Width="1.5" />
+  <Class Name="cBranch">
+    <Position X="9.25" Y="16.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>cBranch.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="cObject" Collapsed="true">
-    <Position X="10.75" Y="10.75" Width="1.5" />
+  <Class Name="cObject">
+    <Position X="5.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAIAgAAAAAAAAAgAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>cObject.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="cPlayer" Collapsed="true">
-    <Position X="7.75" Y="13.5" Width="1.5" />
+  <Class Name="cPlayer">
+    <Position X="7.25" Y="16.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQCECAAAADAgAAECAAABCIACAAAAAAIAAEAAAAAAA=</HashCode>
+      <HashCode>AAAQCACAAAADAgAAEDAAABAAAAAAAAAAAAAEAAAAEAA=</HashCode>
       <FileName>cPlayer.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="cRock" Collapsed="true">
-    <Position X="13" Y="14.75" Width="1.5" />
+  <Class Name="cRock">
+    <Position X="12.25" Y="16.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>cRock.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entity" Collapsed="true">
-    <Position X="9.5" Y="12" Width="1.5" />
+  <Class Name="Entity">
+    <Position X="5.5" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAACAAAAQAgAAIAAAAAAABAA=</HashCode>
+      <HashCode>EAAAAACABAAAAAAAAAAAAACAAAAQAgAAICAEAAAgBAA=</HashCode>
       <FileName>Entity.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Item" Collapsed="true">
-    <Position X="11.75" Y="12" Width="1.5" />
+  <Class Name="Item">
+    <Position X="11" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAIAAAAAAAAAAAQAAAAAAEAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Item.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Level" Collapsed="true">
-    <Position X="15.25" Y="11.5" Width="1.5" />
+  <Class Name="Level">
+    <Position X="14.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAJAABAAABQAgAQkAgAEQAAAAAABCAAAAEgAAEA=</HashCode>
+      <HashCode>CQBAoAZAQBAAABQAgAQMAiAGYAAAAAABCAABAEAAAEI=</HashCode>
       <FileName>Level.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="Tile" Collapsed="true">
-    <Position X="15.25" Y="12.25" Width="1.5" />
+  <Class Name="Agent">
+    <Position X="2.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAGAAAAAAAAQAACAEAAAIAABAABEAAAAQAQAIAAAA=</HashCode>
+      <FileName>Agent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Tile">
+    <Position X="16.5" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgAAAAAAQEBABAAAAAAAAGEAAAAA=</HashCode>
       <FileName>Level.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Enum Name="TILE" Collapsed="true">
-    <Position X="15.25" Y="13" Width="1.5" />
+  <Enum Name="TILE">
+    <Position X="16.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIIAAAAAEAAACAACAEAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIIAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utilities.h</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ITEM" Collapsed="true">
-    <Position X="15.25" Y="13.75" Width="1.5" />
+  <Enum Name="ITEM">
+    <Position X="16.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIEAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utilities.h</FileName>

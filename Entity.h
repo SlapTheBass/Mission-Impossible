@@ -11,6 +11,9 @@ public:
 	/*if true - decreases object speed for a short time, after this time speed will slowly increase*/
 	void Slow();
 
+	/*if true - increases object speed for a short time, after this time object will stop and slowly speed up*/
+	void Slip();
+
 	/*sets the speed of object
 	  @speedVal param is the new speed value described by float type
 	*/
@@ -21,8 +24,16 @@ public:
 	*/
 	void moveDirection(char, float);
 
+	/*Sets slow param as given boolean*/
+	void SetSlow(bool m_slow);
+
+	/*Sets slip param as given boolean*/
+	void SetSlip(bool m_slip);
+
 protected:
 	float m_speed;
+	bool slow;
+	bool slip;
 
 private:
 	int i = 0;

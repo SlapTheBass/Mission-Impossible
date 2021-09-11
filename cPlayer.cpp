@@ -1,18 +1,22 @@
 #include "cPlayer.h"
 
+sf::Clock proj_clk;
 
 cPlayer::cPlayer() 
 {
-	m_speed = 12.2;
+	m_speed = max_speed;
 	slow = false;
 	hide = false;
+	slip = false;
 	m_sprite.setPosition(100,200);
+	//m_sprite.setScale()
 	aim_tex.loadFromFile("graphics/Player/aim.png");
 	aim.setTexture(aim_tex);
 }
 
 void cPlayer::Draw(sf::RenderWindow& window){
 	Slow();
+	Slip();
 	isHidden();
 	cObject::Draw(window);
 	window.draw(aim);
@@ -60,4 +64,12 @@ sf::Sprite cPlayer::isHidden()
 void cPlayer::Hide(bool test)
 {
 	hide = test;
+}
+
+bool cPlayer::isVisible()
+{
+	if (hide != true)
+		return true;
+	else
+		return false;
 }

@@ -10,8 +10,6 @@ public:
 	/*default constructor*/
 	cBranch();
 
-	bool SlowDown(Entity&);
-
 private:
 	sf::Texture branch;
 };

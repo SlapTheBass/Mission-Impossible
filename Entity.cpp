@@ -1,18 +1,21 @@
 #include "Entity.h"
 
 
-sf::Clock clk, m_clock;
+sf::Clock clk, m_clock, m_clock2;
 
 Entity::Entity() :
-	m_speed(0)
+	m_speed(0),
+	slow(false),
+	slip(false)
 {
+	m_sprite.setScale(0.78125f, 0.78125f);
 }
 
 void Entity::moveDirection(char dir, float velocity) {
 
 	int frameX = 0;
-	int width = 60;
-	int height = 62;
+	int width = 64;
+	int height = 64;
 
 
 	if (dir == 'u') {//if direction is 'up'
@@ -202,25 +205,59 @@ void Entity::moveDirection(char dir, float velocity) {
 
 void Entity::Slow()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && clk.getElapsedTime().asMilliseconds() <= 50)
+	if (slow == true)
 	{
-		m_speed -= 4;
-		clk.restart();
+		m_speed -= 7;
 
-		if (m_speed < 4)
+		if (m_speed <= 0)
 		{
-			m_speed = 4;
+			m_speed = 0.5f;
 		}
 	}
-
-	if (m_speed <= 12.2 && m_clock.getElapsedTime().asMilliseconds() >= 250)
+	if (m_speed <= 7.5f && m_clock.getElapsedTime().asMilliseconds() >= 250)
 	{
+		slow = false;
 		m_speed += 0.7;
 		m_clock.restart();
 	}
+
+}
+
+void Entity::Slip()
+{
+	if (slip == true)
+	{
+		m_speed += 10;
+		if (m_clock2.getElapsedTime().asMilliseconds() >= 200)
+		{
+			if (m_speed >= 10.5f)
+			{
+				m_speed = 0;
+			}
+			m_clock2.restart();
+		}
+	}
+
+	if (m_speed <= 7.5f && m_clock.getElapsedTime().asMilliseconds() >= 250)
+	{
+		slip = false;
+		m_speed += 0.7;
+		m_clock.restart();
+	}
+
+}
+
+void Entity::SetSlip(bool m_slip)
+{
+	slip = m_slip;
 }
 
 void Entity::setSpeed(float spd)
 {
 	m_speed = spd;
+}
+
+void Entity::SetSlow(bool m_slow)
+{
+	slow = m_slow;
 }

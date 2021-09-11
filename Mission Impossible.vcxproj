@@ -153,11 +153,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Agent.cpp" />
     <ClCompile Include="cBackground.cpp" />
     <ClCompile Include="cBranch.cpp" />
     <ClCompile Include="cObject.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cRock.cpp" />
+    <ClCompile Include="Diamond.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -165,11 +168,14 @@
     <ClCompile Include="PCH.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agent.h" />
     <ClInclude Include="cBackground.h" />
     <ClInclude Include="cBranch.h" />
     <ClInclude Include="cObject.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="cPlayer.h" />
     <ClInclude Include="cRock.h" />
+    <ClInclude Include="Diamond.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Level.h" />

@@ -1,9 +1,7 @@
 #include "Item.h"
 
-Item::Item() :
-	m_name("")
+Item::Item() 
 {
-
 }
 
 ITEM Item::GetType() const

@@ -18,27 +18,18 @@ public:
 	/*sets hide parameter - TRUE or FALSE*/
 	void Hide(bool);
 
+	/*checks if player is visible for agents*/
+	bool isVisible();
+
 	/*moves player and aim*/
 	void movePlayer();
-
-	/*checks if player is throwing rocks*/
-	bool isThrowing();
-
-	/*gets sprite of aim*/
-	sf::Sprite& getAimSprite();
-
-	/*checks if player can be chased by agents*/
-	bool canBeChased();
 
 
 private:
 	sf::Texture pTexture;
-	//sf::Sprite pSprite;
 	sf::Sprite aim;
 	sf::Texture aim_tex;
-	int i = 0;
-	float interval = 20;
-	//float speed = 12.2;
+	float max_speed = 8.f;
 	bool slow;
 	bool hide;
 };
