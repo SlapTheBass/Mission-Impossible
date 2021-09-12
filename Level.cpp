@@ -1,5 +1,9 @@
 #include "Level.h"
 
+Level::Level()
+{
+}
+
 Level::Level(sf::RenderWindow& window)
 {
 	bush.loadFromFile("graphics/tiles/spr_bush.png");

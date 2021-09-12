@@ -28,6 +28,9 @@ struct Tile {
 class Level
 {
 public:
+	/*Default constructor*/
+	Level();
+
 	/*parametrized constructor which takes game window as an argument*/
 	Level(sf::RenderWindow& window);
 
